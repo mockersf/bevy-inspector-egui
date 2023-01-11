@@ -634,7 +634,7 @@ pub mod short_circuit {
             let handle = reflect_handle
                 .downcast_handle_untyped(value.as_any())
                 .unwrap();
-            let handle_id = handle.id;
+            let handle_id = handle.id();
             let Some(reflect_asset) = env
             .type_registry
             .get_type_data::<ReflectAsset>(reflect_handle.asset_type_id())
@@ -726,12 +726,12 @@ pub mod short_circuit {
                 let handle = reflect_handle
                     .downcast_handle_untyped(handle.as_any())
                     .unwrap();
-                let handle_id = handle.id;
+                let handle_id = handle.id();
 
                 if used_handles.contains(&handle_id) {
                     continue;
                 };
-                used_handles.push(handle.id);
+                used_handles.push(handle.id());
 
                 let asset_value = {
                     // SAFETY: the following code only accesses a resources it has access to, `Assets<T>`
@@ -789,7 +789,7 @@ pub mod short_circuit {
             let handle = reflect_handle
                 .downcast_handle_untyped(value.as_any())
                 .unwrap();
-            let handle_id = handle.id;
+            let handle_id = handle.id();
             let Some(reflect_asset) = env
             .type_registry
             .get_type_data::<ReflectAsset>(reflect_handle.asset_type_id())
