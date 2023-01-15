@@ -1,4 +1,4 @@
-use bevy_ecs::change_detection::{DetectChanges, MutUntyped};
+use bevy_ecs::change_detection::{DetectChangesMut, MutUntyped};
 use bevy_ecs::ptr::PtrMut;
 
 // workaround for https://github.com/bevyengine/bevy/pull/6430
